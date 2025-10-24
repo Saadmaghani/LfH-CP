@@ -1,0 +1,74 @@
+{
+    "info": null,
+    "load_from_scratch": true,
+    "demo_dirs": [
+                "10obs_TS2+_lammr0_model_3090_drop_FIXED_1020ro_03roCl_4d_100u_cG_0velTime_12Vel_incomplete", 
+                "open_space_augmentation1d_1u_cG_09cosineThresh_09threshProp_scaled50000"
+            ],
+    "training_params": {
+        "load_model": "",
+        "epochs": 30000,
+        "batch_size": 512,
+        "batch_per_epoch": 10,  
+        "num_workers": 4,
+        "lr": 3e-4,
+        "saving_freq": 5000,
+        "report_freq": 100,
+        "test_freq": 500,
+        "model_type":"trans"
+    },
+    "dataset_params":{
+        "dataset_type": "single_render",
+        "num_pred_cmd": 5,
+        "sequence_length": 10,
+        "odom_freq": 50,
+        "cmd_vel_freq": 10,
+        "laser_scan_freq": 10
+    },
+    "model_params": {
+        "obs_size": 722,
+        "laser_max_range": 5.0,
+        "layer_sizes": [256, 256],
+        "noise_scale": 0.03,
+        "train_prop": 0.90,
+        "val_prop": 0.05,
+        "sequence_length": 8,
+        "gradient_clip_max_norm": 1.0,
+        "autoregressive": true,
+        "ar_type": "new"
+    },
+    "rnn_model_params": {
+        "input_size": 720,
+        "hidden_size": 256,
+        "num_layers": 4,
+        "bidirectional": 0,
+        "dropout": 0,
+        "laser_max_range": 5.0,
+        "noise_scale": 0.03,
+        "train_prop": 0.80,
+        "val_prop": 0.10
+    },
+    "predictor_params":{
+        "sequence_length": 20,
+        "sequence_dt": 0.1,
+        "autoregressive": true,
+        "num_cmd_pred": 1
+    },
+    "transformer_params": {
+        "lidar_dim": 720,
+        "goal_dim": 2,
+        "action_dim": 2,
+        "history_length": 10,
+        "embed_dim": 256,
+        "nhead":  2,
+        "num_encoder_layers": 2,
+        "dim_feedforward": 256,
+        "dropout": 0.1,
+		"cnn_channels": [16, 32],
+		"cnn_kernel_size": 5,
+        "num_pred_cmd": 5
+    }
+}
+
+
+

@@ -1,0 +1,72 @@
+{
+	"info": null,
+	"Dy": 2,
+	"odom_freq": 50,
+	"data_fnames": ["1m.p"],
+	"training_params": {
+		"load_model": "/projects/RobotiXX/saad/LfH-CP/rslts/LfH_rslts/2025-10-20-14-27-35/trained_models/model_900",
+		"load_model_at_epoch": 900,
+		"epochs": 6000,
+		"batch_size": 128,
+		"batch_per_epoch": 10,
+		"lr": 3e-4,
+		"weight_decay": 3e-3,
+		"num_workers": 8,
+		"saving_freq": 100,
+		"plot_freq": -1
+	},
+	"model_params": {
+		"encoder_channels": [16, 32, 64],
+		"kernel_sizes": [5, 5, 3],
+		"strides": [2, 2, 2],
+		
+		"obs_loc_prior_var_coef": 2.0,
+		"min_obs_loc_prior_var": 1.0,
+		"obs_size_prior_mu": 0.3,
+		"obs_size_prior_var": 0.0025,
+		"lambda_size_kl": 0.0,
+		
+
+		"knot_start": -3,
+		"knot_end": 35,
+		"knot_dt": 0.15,
+		
+		"lambda_loc_reg": 0.3,
+		"reg_final_prop": 0.3,
+		"reg_annealing_steps": 750,
+		"lambda_reference_repulsion": 1e+2,
+		"lambda_mutual_repulsion": 0.0,
+		"repulsion_annealing_steps": 750,
+
+		"num_obs": 20,
+
+		"auto_regressive": true,
+		"auto_regressive_hidden_size": -1,
+
+		"training_stage_2_at_epoch":2000,
+		"training_stage_3_at_epoch":6000,
+		"freeze_layers_at_TS2": [],
+
+		"time_heads_MoS_num_components": -1,
+		
+		"lambda_time_idx_entropy": 0,
+		"lambda_final_time_idx_entropy": 0.5,
+		"gumbel_starting_tau": 2048,
+		"gumbel_final_tau": 0.1,
+		"gumbel_decay_step": -1,
+		"gumbel_decay_type": "exponential",
+		"gumbel_annealing_steps": 2000,
+		
+		"model_variance": false,
+		"num_motion_vars": 1
+	},
+	"optimization_params": {
+		"decoder": "CVX",
+		"clearance": 0.4,
+		"max_vel": 2,
+		"max_acc": 10,
+		"lambda_smoothness": 1.0,
+		"lambda_collision": 0.1,
+		"lambda_feasibility": 1.0
+	}
+}
